@@ -13,12 +13,15 @@ import (
 
 
 func InitDB() *ent.Client {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
 
-	
+	if os.Getenv("ENV") != "production" {
+        err := godotenv.Load()
+		if err != nil {
+			log.Fatal("Error loading .env file")
+		}
+    }
+
+
 	dbURI := os.Getenv("DATABASE_URL")
 	if dbURI == "" {
 		log.Fatal("DATABASE_URL not set in environment")
