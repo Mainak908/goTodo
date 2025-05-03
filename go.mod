@@ -1,6 +1,6 @@
 module github.com/mainak908/simpleTodo
 
-go 1.24.1
+go 1.24.0
 
 require entgo.io/ent v0.14.4
 
